@@ -388,6 +388,27 @@ public class Menu {
         mWindowManager.addView(rootFrame, vmParams);
     }
 
+    @SuppressLint("WrongConstant")
+    public void SetWindowManagerActivityOverlay() {
+        vmParams = new WindowManager.LayoutParams(
+                WRAP_CONTENT,
+                WRAP_CONTENT,
+                WindowManager.LayoutParams.TYPE_APPLICATION,
+                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE |
+                        WindowManager.LayoutParams.FLAG_LAYOUT_IN_OVERSCAN |
+                        WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN |
+                        WindowManager.LayoutParams.FLAG_SPLIT_TOUCH,
+                PixelFormat.TRANSPARENT);
+        vmParams.gravity = 51;
+        vmParams.x = POS_X;
+        vmParams.y = POS_Y;
+
+        mWindowManager = ((Activity) getContext).getWindowManager();
+        mWindowManager.addView(rootFrame, vmParams);
+        
+        overlayRequired = true;
+    }
+
     private View.OnTouchListener onTouchListener() {
         return new View.OnTouchListener() {
             final View collapsedView = mCollapsed;
