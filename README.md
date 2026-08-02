@@ -1,3 +1,21 @@
+# LSPosed Fork
+
+This is a fork of [LGLTeam/Android-Mod-Menu](https://github.com/LGLTeam/Android-Mod-Menu) adapted for LSPosed.
+
+## What's different
+- `Inject.java` replaces the standalone app entry point. It hooks into the target app via LSPosed
+- `Menu.java` adds `SetWindowManagerActivityOverlay()` for injecting the overlay into the target app's Activity without needing `SYSTEM_ALERT_WINDOW`
+
+## Setup
+1. Change `app_name` in `Inject.java` and the package name in `AndroidManifest.xml` to your target package name
+2. Change `libMyLibName` to your library name everywhere it appears
+3. Add your hooks/patches in `Main.cpp` as you normally would
+5. Build and install as an LSPosed module
+
+---
+*Original README below*
+
+---
 
 # Introduction
 ![GitHub](https://img.shields.io/github/license/LGLTeam/Android-Mod-Menu?style=flat-square)
